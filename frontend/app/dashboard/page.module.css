@@ -1,0 +1,86 @@
+.header {
+    background-color: #f0f0f0;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+  
+  .headerContent {
+    display: flex;
+    align-items: center;
+  }
+  
+  .catProfileImage {
+    border-radius: 50%;
+    margin-right: 20px;
+  }
+  
+  .headerInfo {
+    flex: 1;
+  }
+  
+  .main {
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  
+  .services {
+    width: 60%;
+  }
+  
+  .profile {
+    width: 35%;
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+  }
+  
+  .services, .profile {
+    margin-bottom: 20px;
+  }
+  
+  .serviceCard {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+  }
+  
+  .serviceCard:hover {
+    background-color: #f5f5f5;
+  }
+  
+  .serviceIcon {
+    margin-right: 10px;
+  }
+  
+  .serviceInfo {
+    flex: 1;
+  }
+  
+  .serviceButton {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+  }
+  
+  .serviceButton:hover {
+    background-color: #0067cc;
+  }
+  
+  .profileContent {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+  

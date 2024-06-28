@@ -1,0 +1,77 @@
+GET http://localhost:5000/users
+###
+GET http://localhost:5000/users/c3ec36a3-8ce0-43dc-a069-81eac4f2d451
+###
+POST http://localhost:5000/users
+Content-Type: application/json
+
+{
+    "name": "bass",
+    "email": "bass@gmail.com",
+    "password": "12345678",
+    "confPassword": "12345678",
+    "role": "admin"
+}
+
+###
+PATCH http://localhost:5000/users/1
+Content-Type: application/json
+
+{
+    "name": "JOJO",
+    "email": "Jojo@gmail.com",
+    "gender": "Male"
+}
+
+###
+DELETE  http://localhost:5000/users/2
+
+
+###
+# update
+PATCH  http://localhost:5000/users/c3ec36a3-8ce0-43dc-a069-81eac4f2d451
+Content-Type: application/json
+
+{
+    "name": "Arbi J updated",
+    "email": "ArbiJJUPDATE@gmail.com",
+    "password": "",
+    "confPassword": "",
+    "role": "uuu"
+}
+
+###
+DELETE  http://localhost:5000/users/c3ec36a3-8ce0-43dc-a069-81eac4f2d451
+
+
+###
+GET http://localhost:5000/products
+###
+GET http://localhost:5000/products/
+###
+POST http://localhost:5000/products
+Content-Type: application/json
+
+{
+    "name": "Arbi J",
+    "price": 20000,
+    "userId": 2
+}
+
+###
+# login user
+POST http://localhost:5000/login
+Content-Type: application/json
+
+{
+    "email": "bass@gmail.com",
+    "password": "12345678"
+}
+
+###
+# login user
+GET http://localhost:5000/me
+
+###
+# login user
+DELETE  http://localhost:5000/logout
