@@ -9,11 +9,11 @@ import {
 
 const router = express.Router();
 
-router.get('/products', getProducts);
-router.get('/products/:id', getProductById);
-router.post('/products', createProduct);
-router.patch('/products/:id', updateProduct);
-router.delete('/products/:id', deleteProduct);
+router.get('/kucing', getProducts);
+router.get('/kucing/:id', getProductById);
+router.post('/kucing', createProduct);
+router.patch('/kucing/:id', updateProduct);
+router.delete('/kucing/:id', deleteProduct);
 
 
 

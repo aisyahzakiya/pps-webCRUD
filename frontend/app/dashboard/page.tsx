@@ -5,6 +5,7 @@ import styles from './page.module.css';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import swal from 'sweetalert';
+import Swal from 'sweetalert2';
 
 const Dashboard = () => {
   const router = useRouter()
@@ -39,24 +40,37 @@ const Dashboard = () => {
   };
 
   const handleLogout = () => {
-    try {
-      // Handle login logic here
-      fetch('http://localhost:5000/logout', { // untuk memanggil API Login
-        method: 'DELETE'
-      })
-        .then((response) => response.json())
-        .then((data) => {
-          swal('Logout sukses')
-          router.push('login')
-          localStorage.clear()
-        })
-    } catch (error) {
-      swal('Error : ' + error)
-    }
+    Swal.fire({
+      title: "Anda yakin untuk keluar?",
+      showCancelButton: true,
+      confirmButtonText: "Keluar",
+      
+    }).then((result) => {
+      /* Read more about isConfirmed, isDenied below */
+      if (result.isConfirmed) {
+        try {
+          // Handle logout logic here
+          fetch('http://localhost:5000/logout', { // untuk memanggil API Logout
+            method: 'DELETE'
+          })
+            .then((response) => response.json())
+            .then((data) => {
+              router.push('login')
+              localStorage.clear()
+            })
+        } 
+        catch (error) {
+          swal('Error : ' + error)
+        }
+      } else if (result.isDenied) {
+        Swal.fire("Changes are not saved", "", "info");
+      }
+    });
   }
 
   return (
     <div className="px-5">
+      <div className="bg-stone-50">
       <div className="flex justify-between mt-3 mx-3 align-center">
         <div>
           <small>Dashboard</small>
@@ -64,6 +78,8 @@ const Dashboard = () => {
         </div>
         <button type="button" onClick={handleLogout}>Logout</button>
       </div>
+      </div>
+      
       <div className="text-center font-bold mb-10 mt-5">
         Profile Kucing
       </div>

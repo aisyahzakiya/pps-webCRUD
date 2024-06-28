@@ -5,7 +5,7 @@ import db from "../../../config/Database.js";
 import UsersLogin from "../Users/model.js";
 const { DataTypes } = Sequelize;
 
-const Products = db.define('products', {
+const Products = db.define('kucing', {
     // 'id',
     // 'name',
     // 'jenis',
