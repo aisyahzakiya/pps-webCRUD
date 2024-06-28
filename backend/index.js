@@ -1,5 +1,6 @@
 import express from "express";
 import cors from "cors";
+
 // import UserRoute from "./app/v1/User/route.js";
 import UserRoute from "./app/v1/Users/route.js";
 import ProductsRoute from "./app/v1/Products/route.js";
@@ -16,9 +17,9 @@ dotenv.config();
 
 const app = express();
 //menambahkan tabel sinkronisasi database
-(async()=>{
-    await db.sync();   
-   })(); 
+(async() => {
+    await db.sync();
+})();
 
 app.use(session({
     secret: process.env.SESS_SECRET,
@@ -40,6 +41,8 @@ app.use(cors({
 // agar dapat menerima json
 app.use(express.json());
 
+
+app.use('/uploads', express.static('uploads'));
 app.use(UserRoute);
 app.use(ProductsRoute);
 app.use(AuthRoute);
