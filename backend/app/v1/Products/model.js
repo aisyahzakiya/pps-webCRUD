@@ -6,12 +6,7 @@ import UsersLogin from "../Users/model.js";
 const { DataTypes } = Sequelize;
 
 const Products = db.define('kucing', {
-    // 'id',
-    // 'name',
-    // 'jenis',
-    // 'bulan_lahir',
-    // 'tahun_lahir',
-    // 'foto',
+    
     name: {
         type: DataTypes.STRING,
         allowNull: false,
