@@ -68,6 +68,41 @@ const Dashboard = () => {
     });
   }
 
+  const handleTambah = (e) => {
+    e.preventDefault();
+    try {
+      // Handle login logic here
+      fetch('http://localhost:5000/kucing', { // untuk memanggil API register
+        method: 'POST', // method bisa "GET" / "POST" / "PUT" / "DELETE" 
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          router.push('tambahkucing') // redirect ke halaman tambahkucing setelah berhasil register
+        })
+    } catch (error) {
+      swal('Error : ' + error)
+    }
+
+  };
+
+  const handleEdit = (e) => {
+    e.preventDefault();
+    try {
+      // Handle edit profil kucing logic here
+      fetch('http://localhost:5000/kucing/:id', { // untuk memanggil API edit profil kucing
+        method: 'PATCH', // method bisa "GET" / "POST" / "PUT" / "DELETE" 
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          router.push('editkucing') // redirect ke halaman editkucing setelah berhasil register
+        })
+    } catch (error) {
+      swal('Error : ' + error)
+    }
+
+  };
+
+
   return (
     <div className="px-5">
       <div className="bg-stone-50">
@@ -81,22 +116,31 @@ const Dashboard = () => {
       </div>
       
       <div className="text-center font-bold mb-10 mt-5">
-        Profile Kucing
+           
       </div>
       
-      <div className="grid grid-cols-4 gap-4">
+      <div className="grid grid-cols-4 gap-4"> 
+        
         <div className="rounded-xl border border-black p-3 my-3">
-          <h2>Profil</h2>
+          <h2 className="text-center font-bold">Profil Kucing </h2>
           <div className={styles.profileContent}>
-            <p>Nama: {catName}</p>
-            <p>Jenis Kelamin: {catGender}</p>
-            <p>Ras: {catBreed}</p>
-            <p>Usia: {catAge}</p>
+            <p>Nama: Bono</p>
+            <p>Jenis: Anggora</p>
+            <p>Usia: 4 tahun</p>
+            <button className="text-center text-red-500" type="button" onClick={handleEdit}>Edit Profile Kucing</button>
           </div>
+       
         </div>
 
         <div className="rounded-xl border-8 border-dashed border-blue-400 bg-blue-200 my-3">
-          
+        
+        <div className={styles.profileContent}>
+        <h2 className="text-center font-bold text-blue-200">. </h2>
+        <h2 className="text-center font-bold text-blue-200">. </h2>
+            <button className="text-center font-bold text-sky-800" type="button" onClick={handleTambah}>Tambah Profile Kucing</button>
+          </div>
+        
+
         </div>
       </div>
 
@@ -106,32 +150,32 @@ const Dashboard = () => {
             <div className={styles.serviceInfo}>
               <h3 className="text-center font-bold">Penitipan Kucing</h3>
               
-              <div>Nama Kucing: </div>
-              <div>Durasi: </div>
-              <div>Masuk: </div>
-              <div>Keluar: </div>
+              <div>Nama Kucing: Lontong</div>
+              <div>Durasi: 3 hari </div>
+              <div>Masuk:  22 Juni 2024</div>
+              <div>Keluar: 25 Juni 2024</div>
             </div>
           </div>
 
           <div className="border border-black rounded-xl p-3">
             <div className={styles.serviceInfo}>
-              <h3 className="text-center font-bold">Penitipan Kucing</h3>
+              <h3 className="text-center font-bold">Grooming</h3>
               
               <div>Nama Kucing: </div>
-              <div>Durasi: </div>
-              <div>Masuk: </div>
-              <div>Keluar: </div>
+              <div>Jadwal Grooming </div>
+              <div className="text-center text-red-500">-belum ada- </div>
+              <div className="text-sky-500">Lihat detail </div>
             </div>
           </div>
 
           <div className="border border-black rounded-xl p-3">
             <div className={styles.serviceInfo}>
-              <h3 className="text-center font-bold">Penitipan Kucing</h3>
+              <h3 className="text-center font-bold">Konsultasi Dokter</h3>
               
               <div>Nama Kucing: </div>
-              <div>Durasi: </div>
-              <div>Masuk: </div>
-              <div>Keluar: </div>
+              <div>Jadwal Konsultasi: </div>
+              <div>Dokter: </div>
+              <div className="text-sky-500">Lihat detail </div>
             </div>
           </div>
         </div>

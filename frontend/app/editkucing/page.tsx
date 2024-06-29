@@ -20,7 +20,7 @@ export default function Tambah() {
   };
   const router = useRouter()
 
-  const handleTambah = (e) => {
+  const handleEdit = (e) => {
     e.preventDefault();
     try {
       // Handle login logic here
@@ -40,7 +40,7 @@ export default function Tambah() {
         .then((response) => response.json())
         .then((data) => {
           router.push('dashboard') // redirect ke halaman dashboard setelah berhasil menambakan
-          swal('Tambah Profile Kucing Sukses') //tampilkan popup tambah kucing sukses
+          swal('Edit Profile Kucing Sukses') //tampilkan popup tambah kucing sukses
         })
     } catch (error) {
       swal('Error : ' + error)
@@ -50,18 +50,18 @@ export default function Tambah() {
 
   return (
     <div className="main small text-center">
-      <p className="sign leading-loose" align="center">Tambah Profile Kucing</p>
+      <p className="sign leading-loose" align="center">Edit Profile Kucing</p>
       <p>      
       </p>
-      <form onSubmit={handleTambah} className="form.form1" align="center">
+      <form onSubmit={handleEdit} className="form.form1" align="center">
       
-        <input className="kucing" name="name" value={name} onChange={(e) => setName(e.target.value)} type="text" align="center" placeholder="Nama Kucing"/>
-        <input className="kucing" name="jenis" value={jenis} onChange={(e) => setJenis(e.target.value)} type="text" align="center" placeholder="Jenis"/>
-        <input className="kucing" name="bulan_lahir" value={bulan_lahir} onChange={(e) => setBulan(e.target.value)} type="text" align="center" placeholder="Bulan Lahir"/>
-        <input className="kucing" name="tahun_lahir" value={bulan_lahir} onChange={(e) => setTahun(e.target.value)} type="text" align="center" placeholder="Tahun Lahir"/>
+        <input className="kucing" name="name" value={name} onChange={(e) => setName(e.target.value)} type="text" align="center" placeholder="Bono"/>
+        <input className="kucing" name="jenis" value={jenis} onChange={(e) => setJenis(e.target.value)} type="text" align="center" placeholder="Anggora"/>
+        <input className="kucing" name="bulan_lahir" value={bulan_lahir} onChange={(e) => setBulan(e.target.value)} type="text" align="center" placeholder="7"/>
+        <input className="kucing" name="tahun_lahir" value={bulan_lahir} onChange={(e) => setTahun(e.target.value)} type="text" align="center" placeholder="2020"/>
         <img src={createObjectURL} />
         <input className="upload" type="file" name="myImage" onChange={uploadToClient} />
-        <button type="submit" className="submit" id="submit" value="Tambahkan">Tambahkan</button>
+        <button type="submit" className="submit" id="submit" value="Tambahkan">Perbarui</button>
       </form>
     </div>
   );
