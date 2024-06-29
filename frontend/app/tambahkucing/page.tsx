@@ -34,7 +34,6 @@ export default function Tambah() {
           tahun_lahir: tahun_lahir,
           foto: foto,
           userId: 'user.id'
-          
         })
       })
         .then((response) => response.json())
