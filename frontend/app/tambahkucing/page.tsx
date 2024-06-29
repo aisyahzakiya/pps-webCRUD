@@ -44,7 +44,6 @@ export default function Tambah() {
     } catch (error) {
       swal('Error : ' + error)
     }
-
   };
 
   return (
